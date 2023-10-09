@@ -1,36 +1,35 @@
-import "./Navbar.css";
-import cart from "./cart3.svg";
+import Cart from "../cart/cart.jsx";
 import logo from "./building-castle.svg";
+import FlechaAbajo from "../../img/caret-down-fill.svg";
+import SelectCategoria from "../selectCategorias/selectCategorias.jsx";
 
 const Navbar = () => {
   return (
     <header className="header">
       <div className="header__logo">
         <img src={logo} alt="logo" />
-        <h1>GameKey Kingdom</h1>
+        <h1 className="f2">
+          Game<u>Key</u> Kingdom
+        </h1>
       </div>
 
-      <ul className="header__links">
-        <li>
-          <a href="#" className="separador">
-            Componentes
-          </a>
-        </li>
+      <div className="header__links">
+        <input
+          type="search"
+          id="barraBus"
+          className="f1"
+          placeholder="Buscar un producto"
+        />
 
-        <li>
-          <a href="#" className="actual">
-            Juegos
-          </a>
-        </li>
-
-        <input type="search" id="barraBus" placeholder="Buscar un producto" />
-      </ul>
+        <div id="fixFuente">
+          <SelectCategoria />
+        </div>
+      </div>
 
       <div className="header__cart">
-        <input type="button" value="iniciar sesión" />
+        <input type="button" className="f1 btnStyle1" value="Iniciar sesión" />
 
-        <img src={cart} alt="carritoCompra" />
-        <p>0</p>
+        <Cart />
       </div>
     </header>
   );

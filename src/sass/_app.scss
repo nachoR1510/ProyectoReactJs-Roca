@@ -1,0 +1,61 @@
+@use "./colores" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 65%;
+}
+
+.f1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.f2 {
+  font-family: "Rubik Mono One", sans-s;
+  font-weight: 400;
+}
+
+#fixFuente {
+  font-size: 100%;
+  font-size: 2rem;
+}
+
+.bg {
+  background-color: $negro;
+  overflow: auto;
+}
+
+.btnStyle1 {
+  width: 85px;
+  height: 35px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border-style: none;
+  background-color: $blanco;
+  color: $negroFuente;
+  margin-right: 20px;
+  outline: none;
+  transition: all 0.5s;
+  &:hover {
+    box-shadow: 0px 0px 12px 5px $violeta;
+    background: linear-gradient(
+      to right,
+      rgba(109, 89, 122, 1) 0%,
+      rgba(173, 138, 172, 1) 72%,
+      rgb(197, 162, 197) 100%
+    );
+    border-style: solid;
+    border-width: thin;
+    border-color: $blancoTrasnlucido;
+    color: $blanco;
+  }
+}
+
+.bgImg {
+  background-image: url("../img/fondoMain.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

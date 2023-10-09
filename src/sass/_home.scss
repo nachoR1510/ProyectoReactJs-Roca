@@ -1,0 +1,28 @@
+@use "./colores" as *;
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 275px 275px 275px;
+  &__titulo {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h2 {
+      font-size: 4rem;
+      color: $negroFuente;
+    }
+    a {
+      font-size: 3rem;
+      color: $negroFuente;
+    }
+  }
+  &__fondo {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    background: linear-gradient(to bottom, #f8503200 0%, #272825 100%);
+  }
+}

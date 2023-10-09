@@ -1,22 +1,21 @@
-import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
-import "./itemListContainer.css";
+import { CardActionArea } from "@mui/material";
 
-const itemListContainer = (props) => {
+const itemListContainer = ({ char }) => {
+  const { img, titulo, precio } = char;
   return (
-    <Card sx={{ maxWidth: 750 }} className="tarjeta">
+    <Card sx={{ maxWidth: 500 }} id="cardStyle">
       <CardActionArea>
-        <CardMedia component="img" height="300" image={props.img} alt="juego" />
+        <CardMedia component="img" height="300" image={img} alt="juego" />
         <CardContent>
-          <Typography gutterBottom variant="h3" component="div">
-            {props.titulo}
+          <Typography component="div" variant="h3">
+            {titulo}
           </Typography>
-          <Typography variant="h4" color="text.secondary">
-            {props.precio}
+          <Typography color="text.secondary" variant="h3">
+            {precio}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -1,0 +1,86 @@
+@use "./colores" as *;
+
+.header {
+  display: grid;
+  grid-template-columns: 24% 50% 25%;
+  grid-template-rows: 1fr;
+  background: linear-gradient(
+    to right,
+    $blancoTrasnlucido 0%,
+    $blancoTrasnlucido 15%,
+    $negroTranslucido 15%,
+    $negroTranslucido 30%
+  );
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.5);
+  margin-left: 2%;
+  margin-right: 3%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  position: fixed;
+  min-width: 95%;
+  z-index: 100;
+  top: 0;
+  &__logo {
+    font-size: 4.5rem;
+    color: $negroFuente;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+    u {
+      color: $amarillo;
+      text-decoration: none;
+      font-size: 2.8rem;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  &__links {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    a {
+      margin-left: 1%;
+      color: $negroFuente;
+      font-size: 1.8rem;
+      text-decoration: none;
+      transition: all 1s;
+      &:hover {
+        color: $amarillo;
+      }
+    }
+    #barraBus {
+      width: 60%;
+      height: 60%;
+      font-size: 1.8rem;
+      border-radius: 4px;
+      transition: all 1s;
+      background-color: $blanco;
+      outline: none;
+      border-style: none;
+      &:focus {
+        box-shadow: 0px 0px 12px 5px $violeta;
+        background: linear-gradient(
+          to right,
+          rgba(109, 89, 122, 1) 0%,
+          rgba(173, 138, 172, 1) 72%,
+          rgb(197, 162, 197) 100%
+        );
+        border-style: solid;
+        border-width: thin;
+        border-color: $blancoTrasnlucido;
+        color: $blanco;
+      }
+    }
+  }
+  &__cart {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2%;
+  }
+}
