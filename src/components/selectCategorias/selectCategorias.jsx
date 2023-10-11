@@ -87,6 +87,16 @@ const selectCategorias = () => {
       >
         <StyledOption value={50}>Online</StyledOption>
       </Link>
+      <Link
+        to="/category/rpg"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={60}>RPG</StyledOption>
+      </Link>
     </CustomSelect>
   );
 };
