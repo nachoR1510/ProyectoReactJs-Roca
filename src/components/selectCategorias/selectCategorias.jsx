@@ -3,6 +3,7 @@ import { Select, selectClasses } from "@mui/base/Select";
 import { Option, optionClasses } from "@mui/base/Option";
 import { Popper } from "@mui/base/Popper";
 import { styled } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
   const slots = {
@@ -26,12 +27,66 @@ const selectCategorias = () => {
         return `${option.label}`;
       }}
     >
-      <StyledOption value={null}>Sin seleccionar</StyledOption>
-      <StyledOption value={10}>Terror</StyledOption>
-      <StyledOption value={20}>Aventura</StyledOption>
-      <StyledOption value={30}>Accion</StyledOption>
-      <StyledOption value={40}>fantasia</StyledOption>
-      <StyledOption value={50}>online</StyledOption>
+      <Link
+        to="/"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={null}>Sin seleccionar</StyledOption>
+      </Link>
+      <Link
+        to="/category/terror"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={10}>Terror</StyledOption>
+      </Link>
+      <Link
+        to="/category/aventura"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={20}>Aventura</StyledOption>
+      </Link>
+      <Link
+        to="/category/accion"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={30}>Accion</StyledOption>
+      </Link>
+      <Link
+        to="/category/fantasia"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={40}>Fantasia</StyledOption>
+      </Link>
+      <Link
+        to="/category/online"
+        style={{
+          textDecoration: "none",
+          fontSize: "2rem",
+          color: "#242423",
+        }}
+      >
+        <StyledOption value={50}>Online</StyledOption>
+      </Link>
     </CustomSelect>
   );
 };

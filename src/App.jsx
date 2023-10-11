@@ -1,8 +1,9 @@
 import "./sass/main.css";
 import Navbar from "./components/Navbar/Navbar";
-import ItemListContainer from "./components/itemListContainer/itemListContainer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/homePage";
+import Home from "./pages/homePage/homePage";
+import Category from "./pages/categoryPage/categoryPage";
+import ItemDetail from "./pages/itemDetailContainerPage/itemDetailContainerPage";
 
 const App = () => {
   return (
@@ -19,6 +20,8 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/category/:categoryId" element={<Category />} />
+          <Route path="/item/:id" element={<ItemDetail />} />
         </Routes>
       </div>
     </Router>

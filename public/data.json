@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": ["1"],
     "titulo": "Baldurs gate 3",
     "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/baldursGate3.webp",
     "categorias": ["rpg", "fantasia", "aventura"],
@@ -8,15 +8,15 @@
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 2,
+    "id": ["2"],
     "titulo": "Starfield",
-    "img": "https://github.com/nachoR1510/ProyectoReactJs-Roca.github.io/blob/main/src/img/starfield.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/starfield.webp",
     "categorias": ["accion", "aventura"],
     "precio": 12000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 3,
+    "id": ["3"],
     "titulo": "Sekiro",
     "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/sekiro.webp",
     "categorias": ["aventura", "accion", "fantasia"],
@@ -24,74 +24,74 @@
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 4,
+    "id": ["4"],
     "titulo": "Dead by dayligth",
-    "img": "../src/img/src/img/dbd.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/dbd.webp",
     "categorias": ["accion", "terror", "online"],
     "precio": 1600,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 5,
+    "id": ["5"],
     "titulo": "Bioshock infinite",
-    "img": "../src/img/src/img/bioshockInfinite.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/bioshockInifinite.webp",
     "categorias": ["accion", "aventuras"],
     "precio": 400,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 6,
+    "id": ["6"],
     "titulo": "The texas chainsaw massacre",
-    "img": "../src/img/src/img/TCM.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/TCM.webp",
     "categorias": ["accion", "terror", "online"],
     "precio": 2000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 7,
+    "id": ["7"],
     "titulo": "Elden ring",
-    "img": "../src/img/src/img/eldenRing.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/eldenRing.webp",
     "categorias": ["accion", "fantasia", "aventura"],
     "precio": 8000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 8,
+    "id": ["8"],
     "titulo": "Lies of P",
-    "img": "../src/img/src/img/liesOfP.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/liesOfP.webp",
     "categorias": ["accion", "fantasia", "aventura"],
     "precio": 12000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 9,
-    "titulo": "Little nigthmares",
-    "img": "../src/img/src/img/littleNightmares2.jpg",
+    "id": ["9"],
+    "titulo": "Little nigthmares 2",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/littleNightmares2.webp",
     "categorias": ["aventura", "terror"],
     "precio": 1500,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 10,
+    "id": ["10"],
     "titulo": "Persona 5 Royal",
-    "img": "../src/img/src/img/p5.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/p5.webp",
     "categorias": ["accion", "rpg", "aventura"],
     "precio": 15000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 11,
+    "id": ["11"],
     "titulo": "The Witcher 3: Wild Hunt",
-    "img": "../src/img/src/img/witcher3.jpg",
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/witcher3.webp",
     "categorias": ["accion", "rpg", "aventura"],
     "precio": 2000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   },
   {
-    "id": 12,
+    "id": ["12"],
     "titulo": "PAYDAY 3",
-    "img": "../src/img/src/img/payday3.jpg",
-    "categorias": ["accion", "online", "aventura"],
+    "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/payday3.webp",
+    "categorias": ["accion", "online"],
     "precio": 7000,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."
   }

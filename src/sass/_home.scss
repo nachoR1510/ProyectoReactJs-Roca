@@ -3,7 +3,7 @@
 .main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 275px 275px 275px;
+  grid-template-rows: 275px 1fr 275px;
   &__titulo {
     grid-column: 2/3;
     grid-row: 2/3;
@@ -11,13 +11,17 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 8px;
     h2 {
-      font-size: 4rem;
-      color: $negroFuente;
+      font-size: 3.5rem;
+      color: $blanco;
     }
     a {
-      font-size: 3rem;
-      color: $negroFuente;
+      font-size: 2.5rem;
+      color: $blanco;
+      &:hover {
+        color: $amarillo;
+      }
     }
   }
   &__fondo {
