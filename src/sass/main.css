@@ -222,6 +222,9 @@
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
   border-radius: 5px;
+  border-color: rgba(242, 233, 228, 0.4862745098);
+  border-style: solid;
+  border-width: 1px;
   box-shadow: 0px 0px 13px 4px rgba(0, 0, 0, 0.75);
 }
 .itemDetail__card h1 {

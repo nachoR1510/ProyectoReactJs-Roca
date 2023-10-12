@@ -3,6 +3,7 @@
     "id": ["1"],
     "titulo": "Baldurs gate 3",
     "img": "https://raw.githubusercontent.com/nachoR1510/ProyectoReactJs-Roca.github.io/main/src/img/baldursGate3.webp",
+    "logo": "idsa",
     "categorias": ["rpg", "fantasia", "aventura"],
     "precio": 9999,
     "descripcion": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores doloribus laboriosam officia, minus optio exercitationem nisi non enim ad vero repellendus voluptatem odit, eius quasi a voluptate ab ratione. Ipsa."

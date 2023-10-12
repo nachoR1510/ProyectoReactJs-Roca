@@ -25,6 +25,9 @@
     background-color: #27282545;
     backdrop-filter: blur(30px);
     border-radius: 5px;
+    border-color: $blancoBorde;
+    border-style: solid;
+    border-width: 1px;
     box-shadow: 0px 0px 13px 4px rgba(0, 0, 0, 0.75);
     h1 {
       font-size: 3.8rem;
