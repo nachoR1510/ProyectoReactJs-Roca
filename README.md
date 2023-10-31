@@ -1,3 +1,10 @@
+# Entrega final
+- Agregue Context al proyecto para la funcionalidad del carrito: ahora el número del cart del navbar es dinámico y los productos que se vayan agregando al carrito se muestran correctamente. tanto en el carrito como en el detalle del juego se pueden sumar y restar productos.
+- Creé una firebase y puse todos los datos de los productos ahí, ahora tmb almacena un logo y bgImg de cada juego para darle más personalidad y que resulte más llamativo cada página de producto específico.
+- Cree el checkout el cual pide un nombre y un mail para confirmar la compra, use la validación de html5 para asegurar que se completen los espacios, una vez completado el algoritmo devuelve un sweet alert con el id de la compra y almacena en el firebase un ticket con los detalles.
+- Por ultimo termine de pulir el diseño de la entrega, mantuve un estilo moderno y simple con fondos detallados sobre los juegos y usando colores transparentes con efecto de desenfoque en distintos componentes y tarjetas de toda la pagina, uso a lo largo del proyecto una gama de colores especificas de blanco, negro, amarillo y violeta para marcar un estilo y personalidad en el proyecto.
+
+
 # PreEntrega 2 Roca
 
 - Ahora el carrito es un componente a parte del navbar que se puede reutilizar.
