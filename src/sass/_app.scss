@@ -14,8 +14,8 @@
 }
 
 .f2 {
-  font-family: "Rubik Mono One", sans-s;
-  font-weight: 400;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  font-weight: 700;
 }
 
 #fixFuente {
@@ -42,19 +42,13 @@
     box-shadow: 0px 0px 12px 5px $violeta;
     background: linear-gradient(
       to right,
-      rgba(109, 89, 122, 1) 0%,
-      rgba(173, 138, 172, 1) 72%,
-      rgb(197, 162, 197) 100%
+      #845f9c 0%,
+      #6d597a 26%,
+      #523566 100%
     );
     border-style: solid;
     border-width: thin;
-    border-color: $blancoTrasnlucido;
+    border-color: $blancoBorde;
     color: $blanco;
   }
-}
-
-.bgImg {
-  background-image: url("../img/fondoMain.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }

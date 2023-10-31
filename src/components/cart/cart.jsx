@@ -1,10 +1,13 @@
 import cartImg from "./cart3.svg";
+import { useCartContext } from "../../context/cartContext";
 
 const cart = () => {
+  const { cartTotalQuantity } = useCartContext();
+
   return (
     <div className="cartStyle" style={{ marginLeft: "5%" }}>
       <img src={cartImg} alt="carritoCompra" />
-      <p>0</p>
+      <p>{cartTotalQuantity() || 0}</p>
     </div>
   );
 };

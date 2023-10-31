@@ -1,6 +1,8 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { db } from "../../main";
+import { collection, query, getDocs } from "firebase/firestore";
+import ItemCount from "../../components/itemCount/itemCount";
 
 const itemDetailContainerPage = () => {
   const [games, setgames] = useState([]);
@@ -8,9 +10,16 @@ const itemDetailContainerPage = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    fetch("../../data.json")
-      .then((response) => response.json())
-      .then((data) => setgames(data));
+    const getGames = async () => {
+      const q = query(collection(db, "juegos"));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setgames(docs);
+    };
+    getGames();
   }, []);
 
   let juego = games.filter((el) => {
@@ -21,16 +30,26 @@ const itemDetailContainerPage = () => {
     <div>
       {juego.map((game) => {
         return (
-          <div className="itemDetail f1">
-            <img src={game.img} />
+          <div
+            className="itemDetail f1"
+            style={{
+              backgroundImage: `url(${game.bgImg})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+            key={game.id}
+          >
             <div className="itemDetail__card">
-              <h1>{game.titulo}</h1>
-              <p className="itemDetail__card__categorias">
-                Categorias: {game.categorias.join()}
-              </p>
-              <p className="itemDetail__card__desc">{game.descripcion}</p>
-              <h3>${game.precio}</h3>
-              <input type="button" value="Comprar" className="f1 btnStyle1" />
+              <img src={game.logo} className="itemDetail__card__logo" />
+              <div>
+                <h3 className="itemDetail__card__categorias">Categorias</h3>
+                <p className="itemDetail__card__categorias">
+                  {game.categorias.join(" ")}
+                </p>
+              </div>
+              <p className="itemDetail__card__desc">{game.desc}</p>
+              <h4>${game.precio}</h4>
+              <ItemCount initial={1} game={game} />
             </div>
           </div>
         );

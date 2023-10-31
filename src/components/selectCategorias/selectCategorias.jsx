@@ -58,14 +58,14 @@ const selectCategorias = () => {
         <StyledOption value={20}>Aventura</StyledOption>
       </Link>
       <Link
-        to="/category/accion"
+        to="/category/acción"
         style={{
           textDecoration: "none",
           fontSize: "2rem",
           color: "#242423",
         }}
       >
-        <StyledOption value={30}>Accion</StyledOption>
+        <StyledOption value={30}>Acción</StyledOption>
       </Link>
       <Link
         to="/category/fantasia"
@@ -104,12 +104,12 @@ const selectCategorias = () => {
 export default selectCategorias;
 
 const blue = {
-  100: "#DAECFF",
+  100: "#845f9c",
   200: "#99CCF3",
   400: "#3399FF",
   500: "#007FFF",
   600: "#0072E5",
-  900: "#003A75",
+  900: "#f2e9e4",
 };
 
 const grey = {
@@ -158,12 +158,12 @@ const StyledButton = styled("button")(
 
   &.${selectClasses.expanded} {
     &{
-      background: linear-gradient(
-          to right,
-          rgba(109, 89, 122, 1) 0%,
-          rgba(173, 138, 172, 1) 72%,
-          rgb(197, 162, 197) 100%
-        );
+       background: linear-gradient(
+      to right,
+      #845f9c 0%,
+      #6d597a 26%,
+      #523566 100%
+    );
       color: #f2e9e4;
       box-shadow: 0px 0px 12px 5px #6d597a;
     }

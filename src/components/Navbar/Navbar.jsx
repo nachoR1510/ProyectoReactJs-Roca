@@ -1,26 +1,30 @@
 import Cart from "../cart/cart.jsx";
-import logo from "./building-castle.svg";
+import logo from "../../img/logo.png";
 import SelectCategoria from "../selectCategorias/selectCategorias.jsx";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <header className="header">
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <div className="header__logo">
+      <div>
+        <Link
+          to="/"
+          style={{ textDecoration: "none" }}
+          className="header__logo"
+        >
           <img src={logo} alt="logo" />
           <h1 className="f2">
-            Game<u>Key</u> Kingdom
+            Game<span>Key</span> Kingdom
           </h1>
-        </div>
-      </Link>
+        </Link>
+      </div>
 
       <div className="header__links">
         <input
           type="search"
           id="barraBus"
           className="f1"
-          placeholder="Buscar un producto"
+          placeholder="¿Buscas un juego en especifico?"
         />
 
         <div id="fixFuente">
@@ -31,7 +35,9 @@ const Navbar = () => {
       <div className="header__cart">
         <input type="button" className="f1 btnStyle1" value="Iniciar sesión" />
 
-        <Cart />
+        <Link to="/cart" style={{ textDecoration: "none", paddingLeft: "2%" }}>
+          <Cart />
+        </Link>
       </div>
     </header>
   );

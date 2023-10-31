@@ -2,15 +2,9 @@
 
 .header {
   display: grid;
-  grid-template-columns: 24% 50% 25%;
-  grid-template-rows: 1fr;
-  background: linear-gradient(
-    to right,
-    $blancoTrasnlucido 0%,
-    $blancoTrasnlucido 15%,
-    $negroTranslucido 15%,
-    $negroTranslucido 30%
-  );
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 70px;
+  background-color: $negroTranslucido;
   backdrop-filter: blur(20px);
   box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.5);
   margin-left: 2%;
@@ -22,26 +16,31 @@
   z-index: 100;
   top: 0;
   &__logo {
-    font-size: 4.5rem;
-    color: $negroFuente;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 4px;
     list-style: none;
-    u {
-      color: $amarillo;
-      text-decoration: none;
-      font-size: 2.8rem;
-    }
+    background-color: #fbfbfb;
+    margin-right: 30%;
+    gap: 5px;
+    font-size: 3rem;
+    color: #0f2425;
     img {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 70px;
+      padding-left: 2%;
+    }
+    h1 {
+      margin-top: 2%;
+      span {
+        color: $amarillo;
+        font-size: 2rem;
+      }
     }
   }
   &__links {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     gap: 10px;
     a {
@@ -57,24 +56,34 @@
     #barraBus {
       width: 60%;
       height: 60%;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       border-radius: 4px;
       transition: all 1s;
       background-color: $blanco;
       outline: none;
       border-style: none;
+      padding-left: 2%;
+      &::placeholder {
+        color: $negroTranslucido;
+        padding-left: 4%;
+        background-image: url("../img/search.svg");
+        background-repeat: no-repeat;
+      }
       &:focus {
         box-shadow: 0px 0px 12px 5px $violeta;
         background: linear-gradient(
           to right,
-          rgba(109, 89, 122, 1) 0%,
-          rgba(173, 138, 172, 1) 72%,
-          rgb(197, 162, 197) 100%
+          #845f9c 0%,
+          #6d597a 26%,
+          #523566 100%
         );
         border-style: solid;
         border-width: thin;
         border-color: $blancoTrasnlucido;
         color: $blanco;
+        &::placeholder {
+          color: $blancoTrasnlucido;
+        }
       }
     }
   }

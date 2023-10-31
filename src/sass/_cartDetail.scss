@@ -1,0 +1,64 @@
+@use "./colores" as *;
+
+.cartDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 120px 1fr 100px;
+  &__empty {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    h2 {
+      font-size: 4rem;
+      color: $blanco;
+      text-align: center;
+    }
+    p {
+      font-size: 3rem;
+      color: $blanco;
+      text-align: center;
+      &:hover {
+        color: $amarillo;
+      }
+    }
+  }
+  &__fill {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+    h2 {
+      color: $blanco;
+      font-size: 4rem;
+    }
+    p {
+      font-size: 3rem;
+      color: $blanco;
+    }
+    &__games {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: $blanco;
+      border-radius: 5px;
+      width: 1000px;
+      img {
+        width: 250px;
+        height: 200px;
+        border-radius: 4px;
+      }
+      h3 {
+        color: $negroFuente;
+        font-size: 3rem;
+      }
+      h4 {
+        color: $negroFuente;
+        font-size: 2rem;
+      }
+    }
+  }
+}

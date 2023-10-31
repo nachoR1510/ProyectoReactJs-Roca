@@ -5,13 +5,7 @@
   color: $blanco;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 300px 1fr;
-  img {
-    width: 100%;
-    height: 1000px;
-    position: fixed;
-    z-index: -1;
-  }
+  grid-template-rows: 300px 1fr 39px;
   &__card {
     display: flex;
     align-items: center;
@@ -21,9 +15,9 @@
     grid-column: 3/4;
     grid-row: 2/3;
     width: 400px;
-    height: 500px;
-    background-color: #27282545;
-    backdrop-filter: blur(30px);
+    height: 600px;
+    background-color: #27282554;
+    backdrop-filter: blur(50px);
     border-radius: 5px;
     border-color: $blancoBorde;
     border-style: solid;
@@ -35,7 +29,7 @@
       text-align: center;
     }
     &__categorias {
-      font-size: 2rem;
+      font-size: 1.8rem;
       text-align: center;
     }
     &__desc {
@@ -47,5 +41,42 @@
     h3 {
       font-size: 3rem;
     }
+    h4 {
+      font-size: 3.5rem;
+      color: $amarillo;
+    }
+    &__logo {
+      width: 250px;
+      height: 180px;
+    }
+    &__btn {
+      display: flex;
+      gap: 5px;
+    }
+  }
+}
+
+.itemCount {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__quantity {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    p {
+      font-size: 2rem;
+      color: $blanco;
+    }
+    input {
+      width: 30px;
+      height: 30px;
+      font-size: 2rem;
+    }
+  }
+  &__complete {
+    display: flex;
+    gap: 5px;
   }
 }

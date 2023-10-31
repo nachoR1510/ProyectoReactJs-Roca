@@ -6,15 +6,22 @@ import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const itemListContainer = ({ game }) => {
-  const { img, titulo, precio, id } = game;
+  const { img, nombre, precio, id } = game;
   return (
     <Link to={`/item/${id}`} style={{ textDecoration: "none" }}>
-      <Card sx={{ maxWidth: 500 }} id="cardStyle">
+      <Card sx={{ maxWidth: 500, minWidth: 500 }} id="cardStyle">
         <CardActionArea>
           <CardMedia component="img" height="300" image={img} alt="juego" />
           <CardContent>
-            <Typography component="div" variant="h3">
-              {titulo}
+            <Typography
+              component="div"
+              variant="h4"
+              style={{
+                fontFamily: "Montserrat, sans-serif",
+                fontSize: "2.5rem",
+              }}
+            >
+              {nombre}
             </Typography>
             <Typography color="text.secondary" variant="h3">
               $ {precio}

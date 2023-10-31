@@ -1,0 +1,73 @@
+@use "./colores" as *;
+
+.orderDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 1fr 238px;
+  background-image: url("../img/bgCheckout.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__form {
+    display: flex;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    flex-direction: column;
+    gap: 10px;
+    background-color: $negroTranslucido;
+    backdrop-filter: blur(40px);
+    border-radius: 4px;
+    width: 900px;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+    input {
+      height: 60px;
+      width: 500px;
+      border-radius: 4px;
+      font-size: 2rem;
+      transition: all 1s;
+      background-color: $blanco;
+      outline: none;
+      border-style: none;
+      &:focus {
+        box-shadow: 0px 0px 12px 5px $violeta;
+        background: linear-gradient(
+          to right,
+          #845f9c 0%,
+          #6d597a 26%,
+          #523566 100%
+        );
+        border-style: solid;
+        border-width: 1px;
+        border-color: $blancoTrasnlucido;
+      }
+    }
+    h2 {
+      font-size: 3rem;
+      color: $blanco;
+      margin-bottom: 5%;
+    }
+  }
+}
+
+.swal2-title {
+  font-size: 5rem !important;
+  color: $negroFuente !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.swal2-html-container {
+  font-size: 4rem !important;
+  color: $negroFuente !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+}
+
+.swal2-confirm {
+  font-size: 3rem !important;
+  color: $blanco !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important;
+  background-color: #523566 !important;
+}

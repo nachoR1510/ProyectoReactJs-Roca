@@ -1,8 +1,8 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Item from "../../components/itemListContainer/itemListContainer";
-import { Link } from "react-router-dom";
+import { db } from "../../main";
+import { collection, query, getDocs } from "firebase/firestore";
 
 const categoryPage = () => {
   const [games, setgames] = useState([]);
@@ -10,9 +10,16 @@ const categoryPage = () => {
   let { categoryId } = useParams();
 
   useEffect(() => {
-    fetch("../../data.json")
-      .then((response) => response.json())
-      .then((data) => setgames(data));
+    const getGames = async () => {
+      const q = query(collection(db, "juegos"));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setgames(docs);
+    };
+    getGames();
   }, []);
 
   let categoriaJuegos = games.filter((el) => {
@@ -22,7 +29,7 @@ const categoryPage = () => {
   return (
     <div id="tienda" style={{ marginTop: "8%" }}>
       {categoriaJuegos.map((game) => {
-        return <Item game={game} />;
+        return <Item game={game} key={game.id} />;
       })}
     </div>
   );
