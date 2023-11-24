@@ -18,7 +18,7 @@ const itemListContainer = ({ game }) => {
               variant="h4"
               style={{
                 fontFamily: "Montserrat, sans-serif",
-                fontSize: "2.5rem",
+                fontSize: "2rem",
               }}
             >
               {nombre}

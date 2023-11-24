@@ -134,7 +134,7 @@ const StyledButton = styled("button")(
   padding: 8px 12px;
   border-radius: 4px;
   text-align: left;
-  line-height: 1.5;
+  line-height: 1.7;
   background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};

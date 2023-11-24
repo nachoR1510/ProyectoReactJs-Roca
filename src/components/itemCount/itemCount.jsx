@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
+import Cart from "../cart/cart3.svg";
 
 export const itemCount = ({ initial, game }) => {
   const [count, setCount] = useState(initial);
@@ -41,25 +42,23 @@ export const itemCount = ({ initial, game }) => {
       </div>
 
       <div className="itemCount__complete">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <input
-            type="button"
-            value="Añadir al carrito"
-            className="f1 btnStyle1"
-            style={{ fontSize: "1.5rem", width: "160px", height: "60px" }}
-            onClick={complete}
-          />
+        <Link
+          to="/"
+          style={{ textDecoration: "none" }}
+          className="cart btnStyle2"
+          onClick={complete}
+        >
+          <img src={Cart} alt="carrito" />
         </Link>
 
         <Link to="/cart" style={{ textDecoration: "none" }}>
           <input
             type="button"
-            value="Comprar"
-            className="f1 btnStyle1"
+            value="Comprar juego"
+            className="f1 btnStyle2"
             style={{
-              fontSize: "1.5rem",
-              width: "160px",
-              height: "60px",
+              width: "180px",
+              height: "70px",
             }}
             onClick={complete}
           />

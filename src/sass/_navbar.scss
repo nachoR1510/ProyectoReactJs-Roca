@@ -3,9 +3,9 @@
 .header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 70px;
+  grid-template-rows: 75px;
   background-color: $negroTranslucido;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(15px);
   box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.5);
   margin-left: 2%;
   margin-right: 3%;
@@ -20,22 +20,19 @@
     justify-content: flex-start;
     align-items: center;
     list-style: none;
-    background-color: #fbfbfb;
-    margin-right: 30%;
-    gap: 5px;
-    font-size: 3rem;
+    background-color: $amarillo;
     color: #0f2425;
+    height: 75px;
+    width: 350px;
     img {
-      width: 80px;
-      height: 70px;
+      width: 70px;
+      height: 60px;
       padding-left: 2%;
     }
     h1 {
       margin-top: 2%;
-      span {
-        color: $amarillo;
-        font-size: 2rem;
-      }
+      color: $blanco;
+      font-size: 2.5rem;
     }
   }
   &__links {

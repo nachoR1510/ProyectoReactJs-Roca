@@ -15,9 +15,7 @@ const App = () => {
         <div>
           <style>
             @import
-            url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Playfair+Display+SC:wght@700&display=swap');
-            @import
-            url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+            url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
           </style>
 
           <Navbar />

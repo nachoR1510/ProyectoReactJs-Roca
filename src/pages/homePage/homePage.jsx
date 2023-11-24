@@ -38,8 +38,8 @@ const homePage = () => {
             key={game.id}
           >
             <h2 className="f1 main__titulo">Juego destacado</h2>
-            <a href="#tienda" className="f1">
-              Empezar a explorar juegos
+            <a href="#tienda" className="f1 main__a">
+              Explorar juegos
             </a>
 
             <div className="main__card f1">

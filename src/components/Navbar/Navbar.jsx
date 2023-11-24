@@ -13,9 +13,7 @@ const Navbar = () => {
           className="header__logo"
         >
           <img src={logo} alt="logo" />
-          <h1 className="f2">
-            Game<span>Key</span> Kingdom
-          </h1>
+          <h1 className="f2">GameKey Kingdom</h1>
         </Link>
       </div>
 
