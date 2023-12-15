@@ -26,40 +26,44 @@ const cartDetailPage = () => {
   return (
     <div className="cartDetail f1">
       <div className="cartDetail__fill">
-        <h2>Lista de juegos</h2>
+        <h2 className="f1">LISTA DE JUEGOS</h2>
 
-        {cart.map((game) => {
-          return (
-            <div className="cartDetail__fill__games" key={game.id}>
-              <img src={game.img} alt={game.nombre} />
-              <h3>{game.nombre}</h3>
-              <h4>
-                X{game.quantity} ${game.precio * game.quantity}
-              </h4>
-              <CartModifier initial={game.quantity} game={game} />
-            </div>
-          );
-        })}
+        <div className="cartDetail__fill__games">
+          {cart.map((game) => {
+            return (
+              <div className="game" key={game.id}>
+                <img src={game.img} alt={game.nombre} />
+                <h3 className="f3">{game.nombre.toUpperCase()}</h3>
+                <h4 className="f3">
+                  X{game.quantity} ${game.precio * game.quantity}
+                </h4>
+                <CartModifier initial={game.quantity} game={game} />
+              </div>
+            );
+          })}
+        </div>
 
-        <p>total: $ {totalPrice()}</p>
+        <div className="cartDetail__fill__total">
+          <p>total: $ {totalPrice()}</p>
 
-        <div style={{ display: "flex", gap: "10px" }}>
-          <Link to="/checkout" style={{ textDecoration: "none" }}>
+          <div style={{ display: "flex", gap: "10px" }}>
+            <Link to="/checkout" style={{ textDecoration: "none" }}>
+              <input
+                type="button"
+                value="Comprar"
+                className="f3 btnStyle btnHover"
+                style={{ fontSize: "2rem", width: "120px", height: "60px" }}
+              />
+            </Link>
+
             <input
               type="button"
-              value="Comprar"
-              className="f1 btnStyle1"
-              style={{ fontSize: "2rem", width: "120px", height: "60px" }}
+              value="Vaciar tienda"
+              className="f3 btnStyle btnHover"
+              onClick={clean}
+              style={{ fontSize: "2rem", width: "160px", height: "60px" }}
             />
-          </Link>
-
-          <input
-            type="button"
-            value="Vaciar tienda"
-            className="f1 btnStyle1"
-            onClick={clean}
-            style={{ fontSize: "2rem", width: "160px", height: "60px" }}
-          />
+          </div>
         </div>
       </div>
     </div>

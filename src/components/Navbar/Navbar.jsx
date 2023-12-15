@@ -2,6 +2,7 @@ import Cart from "../cart/cart.jsx";
 import logo from "../../img/logo.png";
 import SelectCategoria from "../selectCategorias/selectCategorias.jsx";
 import { Link } from "react-router-dom";
+import User from "../../img/user.svg";
 
 const Navbar = () => {
   return (
@@ -21,7 +22,7 @@ const Navbar = () => {
         <input
           type="search"
           id="barraBus"
-          className="f1"
+          className="f3"
           placeholder="¿Buscas un juego en especifico?"
         />
 
@@ -31,7 +32,11 @@ const Navbar = () => {
       </div>
 
       <div className="header__cart">
-        <input type="button" className="f1 btnStyle1" value="Iniciar sesión" />
+        <img
+          src={User}
+          alt="iconoUsuario"
+          style={{ width: "30px", height: "30px" }}
+        />
 
         <Link to="/cart" style={{ textDecoration: "none", paddingLeft: "2%" }}>
           <Cart />

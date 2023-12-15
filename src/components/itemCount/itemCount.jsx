@@ -30,14 +30,14 @@ export const itemCount = ({ initial, game }) => {
           value="-"
           disabled={count <= 1}
           onClick={decrese}
-          className="btnStyle1 f1"
+          className="btnStyle btnHover f3"
         />
         <p>{count}</p>
         <input
           type="button"
           value="+"
           onClick={increse}
-          className="btnStyle1 f1"
+          className="btnStyle btnHover f3"
         />
       </div>
 

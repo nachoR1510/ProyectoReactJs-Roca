@@ -2,12 +2,13 @@ import { useCartContext } from "../../context/cartContext";
 import { useState } from "react";
 
 const cartModifier = ({ initial, game }) => {
-  const { cartCount, removeFromCart } = useCartContext();
+  const { cartCount, removeFromCart, cartSub } = useCartContext();
   const [count, setCount] = useState(initial);
 
   const addToCart = () => {
     setCount(count + 1);
-    cartCount(game, count);
+    const add = 1;
+    cartCount(game, add);
   };
 
   const subFromCart = () => {
@@ -16,7 +17,8 @@ const cartModifier = ({ initial, game }) => {
     if (count === 0) {
       removeFromCart(game.id);
     } else {
-      cartCount(game, count);
+      const sub = 1;
+      cartSub(game, sub);
     }
   };
 
@@ -28,26 +30,35 @@ const cartModifier = ({ initial, game }) => {
     <div style={{ display: "flex", gap: "10px" }}>
       <input
         type="button"
-        value="+"
-        onClick={addToCart}
-        className="btnStyle1"
-        style={{ width: "30px", fontSize: "2rem" }}
+        value="-"
+        onClick={subFromCart}
+        className="btnStyle btnHover"
+        style={{
+          width: "30px",
+          fontSize: "2rem",
+        }}
       />
 
       <input
         type="button"
-        value="-"
-        onClick={subFromCart}
-        className="btnStyle1"
-        style={{ width: "30px", fontSize: "2rem" }}
+        value="+"
+        onClick={addToCart}
+        className="btnStyle btnHover"
+        style={{
+          width: "30px",
+          fontSize: "2rem",
+        }}
       />
 
       <input
         type="button"
         value="Eliminar del carrito"
         onClick={delate}
-        className="btnStyle1"
-        style={{ width: "120px", fontSize: "1.2rem" }}
+        className="btnStyle btnHover"
+        style={{
+          width: "120px",
+          fontSize: "1.2rem",
+        }}
       />
     </div>
   );

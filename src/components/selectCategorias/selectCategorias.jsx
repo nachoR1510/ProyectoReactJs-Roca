@@ -19,6 +19,7 @@ const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
 const selectCategorias = () => {
   return (
     <CustomSelect
+      style={{ fontFamily: "Lato, sans-serif" }}
       defaultValue={null}
       renderValue={(option) => {
         if (option == null || option.value === null) {
@@ -35,7 +36,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={null}>Sin seleccionar</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={null}>
+          Sin seleccionar
+        </StyledOption>
       </Link>
       <Link
         to="/category/terror"
@@ -45,7 +48,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={10}>Terror</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={10}>
+          Terror
+        </StyledOption>
       </Link>
       <Link
         to="/category/aventura"
@@ -55,7 +60,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={20}>Aventura</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={20}>
+          Aventura
+        </StyledOption>
       </Link>
       <Link
         to="/category/acción"
@@ -65,7 +72,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={30}>Acción</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={30}>
+          Acción
+        </StyledOption>
       </Link>
       <Link
         to="/category/fantasia"
@@ -75,7 +84,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={40}>Fantasia</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={40}>
+          Fantasia
+        </StyledOption>
       </Link>
       <Link
         to="/category/online"
@@ -85,7 +96,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={50}>Online</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={50}>
+          Online
+        </StyledOption>
       </Link>
       <Link
         to="/category/rpg"
@@ -95,7 +108,9 @@ const selectCategorias = () => {
           color: "#242423",
         }}
       >
-        <StyledOption value={60}>RPG</StyledOption>
+        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={60}>
+          RPG
+        </StyledOption>
       </Link>
     </CustomSelect>
   );

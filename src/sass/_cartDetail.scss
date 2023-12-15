@@ -3,7 +3,11 @@
 .cartDetail {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 120px 1fr 100px;
+  grid-template-rows: 15vh 85vh;
+  background-image: url("../img/bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   &__empty {
     grid-column: 2/3;
     grid-row: 2/3;
@@ -14,11 +18,14 @@
       font-size: 4rem;
       color: $blanco;
       text-align: center;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     }
     p {
       font-size: 3rem;
       color: $blanco;
       text-align: center;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      transition: all 1s;
       &:hover {
         color: $amarillo;
       }
@@ -41,23 +48,63 @@
     }
     &__games {
       display: flex;
-      align-items: center;
-      gap: 10px;
-      background-color: $blanco;
+      flex-direction: column;
+      gap: 5px;
+      max-height: 500px;
+      overflow-y: scroll;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      padding-left: 1%;
+      backdrop-filter: blur(25px);
+      background-color: $negroTranslucido;
       border-radius: 5px;
-      width: 1000px;
-      img {
-        width: 250px;
-        height: 200px;
-        border-radius: 4px;
+      box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.75);
+      &::-webkit-scrollbar {
+        -webkit-appearance: none;
       }
-      h3 {
-        color: $negroFuente;
-        font-size: 3rem;
+      &::-webkit-scrollbar:vertical {
+        width: 5px;
       }
-      h4 {
-        color: $negroFuente;
-        font-size: 2rem;
+      &::-webkit-scrollbar-thumb {
+        background-color: $amarillo;
+        border-radius: 20px;
+      }
+      .game {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-right: 2%;
+        img {
+          max-width: 300px;
+          min-width: 300px;
+          width: 300px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 4px;
+        }
+        h3 {
+          color: $blanco;
+          font-size: 2.5rem;
+          width: 300px;
+          margin-left: 1%;
+        }
+        h4 {
+          color: $blanco;
+          font-size: 2rem;
+          width: 180px;
+          padding-left: 2%;
+        }
+      }
+    }
+    &__total {
+      width: 350px;
+      backdrop-filter: blur(10px);
+      padding: 2%;
+      border-radius: 5px;
+      box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.75);
+      background-color: $negroTranslucido;
+      p {
+        padding-bottom: 3%;
       }
     }
   }

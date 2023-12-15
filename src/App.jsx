@@ -15,7 +15,7 @@ const App = () => {
         <div>
           <style>
             @import
-            url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+            url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
           </style>
 
           <Navbar />

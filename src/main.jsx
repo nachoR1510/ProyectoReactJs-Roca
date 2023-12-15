@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import "animate.css";
+import "hover.css";
 import App from "./App.jsx";
 
 const firebaseConfig = {

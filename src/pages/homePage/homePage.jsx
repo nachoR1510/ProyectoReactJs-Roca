@@ -28,53 +28,57 @@ const homePage = () => {
     <div>
       {destacado.map((game) => {
         return (
-          <main
-            className="main"
-            style={{
-              backgroundImage: `url(${game.bgImg})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-            key={game.id}
-          >
-            <h2 className="f1 main__titulo">Juego destacado</h2>
-            <a href="#tienda" className="f1 main__a">
-              Explorar juegos
-            </a>
+          <div>
+            <img className="bgImg" src={game.bgImg} alt="bgimgHome" />
 
-            <div className="main__card f1">
-              <img src={game.logo} />
-              <div className="main__card__bg">
-                <p>{game.desc}</p>
-                <Link
-                  to={`/item/${game.id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <input
-                    type="button"
-                    value="Más información"
-                    className="btnStyle1 f1"
-                    style={{
-                      fontSize: "1.5rem",
-                      width: "160px",
-                      height: "60px",
-                      marginTop: "3%",
-                    }}
-                  />
-                </Link>
+            <main className="home">
+              <h2 className="home__titulo f1">JUEGO DESTACADO</h2>
+
+              <div className="home__game">
+                <img src={game.logo} />
+                <div className="home__game__info">
+                  <p>{game.desc}</p>
+                  <Link
+                    to={`/item/${game.id}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <input
+                      type="button"
+                      value="Más información"
+                      className="btnStyle btnHover btnHome f3"
+                    />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="home__btnToTienda">
+                <a href="#items" className="f3">
+                  Explorar juegos
+                </a>
+              </div>
+
+              <p className="home__degraded"></p>
+            </main>
+
+            <div
+              style={{
+                backgroundColor: "#2728255a",
+                backdropFilter: "blur(25px)",
+              }}
+            >
+              <div className="home__store">
+                <h3 className="f1">JUEGOS RECOMENDADOS</h3>
+                <section id="items">
+                  {games.map((game) => {
+                    return <Item game={game} key={game.id} />;
+                  })}
+                </section>
               </div>
             </div>
-
-            <p className="main__fondo"></p>
-          </main>
+          </div>
         );
       })}
-
-      <section id="tienda">
-        {games.map((game) => {
-          return <Item game={game} key={game.id} />;
-        })}
-      </section>
+      ;
     </div>
   );
 };

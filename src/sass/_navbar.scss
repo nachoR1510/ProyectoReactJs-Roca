@@ -4,15 +4,10 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 75px;
-  background-color: $negroTranslucido;
-  backdrop-filter: blur(15px);
+  background-color: $negro;
   box-shadow: 0px 10px 19px -1px rgba(0, 0, 0, 0.5);
-  margin-left: 2%;
-  margin-right: 3%;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
   position: fixed;
-  min-width: 95%;
+  min-width: 100%;
   z-index: 100;
   top: 0;
   &__logo {
@@ -30,8 +25,8 @@
       padding-left: 2%;
     }
     h1 {
-      margin-top: 2%;
-      color: $blanco;
+      margin-top: 1%;
+      color: $negro;
       font-size: 2.5rem;
     }
   }
@@ -42,7 +37,7 @@
     gap: 10px;
     a {
       margin-left: 1%;
-      color: $negroFuente;
+      color: #05080f;
       font-size: 1.8rem;
       text-decoration: none;
       transition: all 1s;
@@ -53,7 +48,7 @@
     #barraBus {
       width: 60%;
       height: 60%;
-      font-size: 1.5rem;
+      font-size: 2rem;
       border-radius: 4px;
       transition: all 1s;
       background-color: $blanco;
@@ -62,9 +57,10 @@
       padding-left: 2%;
       &::placeholder {
         color: $negroTranslucido;
-        padding-left: 4%;
+        padding-left: 6%;
         background-image: url("../img/search.svg");
         background-repeat: no-repeat;
+        background-size: contain;
       }
       &:focus {
         box-shadow: 0px 0px 12px 5px $violeta;
@@ -75,7 +71,7 @@
           #523566 100%
         );
         border-style: solid;
-        border-width: thin;
+        border-width: 1px;
         border-color: $blancoTrasnlucido;
         color: $blanco;
         &::placeholder {
@@ -88,6 +84,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 2%;
+    margin-right: 5%;
   }
 }

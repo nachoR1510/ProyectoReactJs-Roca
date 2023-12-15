@@ -27,9 +27,13 @@ const categoryPage = () => {
   });
 
   return (
-    <div id="tienda" style={{ marginTop: "8%" }}>
+    <div id="items" style={{ marginTop: "5%" }}>
       {categoriaJuegos.map((game) => {
-        return <Item game={game} key={game.id} />;
+        return (
+          <div>
+            <Item game={game} key={game.id} />
+          </div>
+        );
       })}
     </div>
   );
