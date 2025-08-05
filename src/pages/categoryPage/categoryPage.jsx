@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Item from "../../components/itemListContainer/itemListContainer";
 import { db } from "../../main";
 import { collection, query, getDocs } from "firebase/firestore";
 
 const categoryPage = () => {
   const [games, setgames] = useState([]);
-
-  let { categoryId } = useParams();
+  const { categoryId } = useParams();
 
   useEffect(() => {
     const getGames = async () => {
@@ -22,19 +21,53 @@ const categoryPage = () => {
     getGames();
   }, []);
 
-  let categoriaJuegos = games.filter((el) => {
-    return el.categorias.includes(categoryId);
-  });
+  const categoriaJuegos =
+    categoryId === "all"
+      ? games
+      : games.filter((el) => el.categorias.includes(categoryId));
 
   return (
-    <div id="items" style={{ marginTop: "5%" }}>
-      {categoriaJuegos.map((game) => {
-        return (
+    <div className="itemList">
+      {categoryId !== "all" && (
+        <div
+          className="itemList-banner border"
+          style={{
+            backgroundImage: `url('/img/bg-${categoryId}.webp')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div
+            className="banner-blur"
+            style={{
+              backgroundImage: `url('/img/bg-${categoryId}.webp')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          ></div>
+          <img src={`/img/${categoryId}.webp`} alt="img" />
           <div>
-            <Item game={game} key={game.id} />
+            <Link
+              to="/"
+              className="itemList-banner-btn border bg-white-blur padding-10"
+            >
+              <img src="/img/back-icon.svg" alt="btn-back" />
+              <p className="text-black text-body text-bold font-inter">
+                Volver
+              </p>
+            </Link>
+            <h2 className="text-title text-white bold font-mont bg-black-blur border padding-10 outline">
+              {categoryId.toUpperCase()}
+            </h2>
           </div>
-        );
-      })}
+        </div>
+      )}
+
+      {categoriaJuegos.map((game) => (
+        <div key={game.id}>
+          <Item game={game} />
+        </div>
+      ))}
     </div>
   );
 };

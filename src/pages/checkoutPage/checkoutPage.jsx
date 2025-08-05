@@ -1,85 +1,42 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useCartContext } from "../../context/cartContext";
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../main";
-import Swal from "sweetalert2";
 
-const orderDetailPage = () => {
-  const { cart, totalPrice, clearCart } = useCartContext();
+const checkoutPage = () => {
+  const { cart } = useCartContext();
 
-  const initialState = {
-    usuario: "",
-    mail: "",
-    items: cart.map((game) => ({
-      id: game.id,
-      nombre: game.nombre,
-      precio: game.precio,
-      cantidad: game.quantity,
-    })),
-    total: totalPrice(),
-  };
-
-  const [ticket, setTicket] = useState(initialState);
-
-  const handleOnChange = (e) => {
-    const { value, name } = e.target;
-    setTicket({ ...ticket, [name]: value });
-  };
-
-  const handleOnSumbit = async (e) => {
-    e.preventDefault();
-
-    const docRef = await addDoc(collection(db, "tickets"), {
-      ticket,
-    });
-
-    clearCart();
-
-    setTicket(initialState);
-
-    Swal.fire({
-      title: "¡listo!",
-      text: `Compra realizada con exito, tu numero de compra es: ${docRef.id}`,
-      confirmButtonText: "Aceptar",
-      width: "800px",
-    });
+  const generarCodigo = () => {
+    return Math.random().toString(36).substring(2, 10).toUpperCase();
   };
 
   return (
-    <div className="orderDetail">
-      <form className="orderDetail__form" onSubmit={handleOnSumbit}>
-        <h2 className="f1">Ingrese sus datos para terminar su compra</h2>
+    <div className="checkout">
+      <h1 className="text-white font-mont text-title bold">TUS CODIGOS</h1>
+      <div className="border outline padding-10 checkout-games">
+        {cart.map((game) => {
+          const quantity = game.quantity || 1;
 
-        <input
-          type="text"
-          name="usuario"
-          id="usuario"
-          value={ticket.usuario}
-          placeholder="Ingrese su nombre"
-          onChange={handleOnChange}
-          required
-        />
-
-        <input
-          type="text"
-          name="mail"
-          id="mail"
-          value={ticket.mail}
-          placeholder="Ingrese su mail"
-          onChange={handleOnChange}
-          required
-        />
-
-        <input
-          type="submit"
-          value="Confirmar compra"
-          className="btnStyle1 f1"
-          style={{ width: "160px", fontSize: "1.5rem" }}
-        />
-      </form>
+          return (
+            <div key={game.id} className="games-repeat">
+              {Array.from({ length: quantity }).map((_, index) => (
+                <div
+                  key={`${game.id}-${index}`}
+                  className="checkout-game border bg-white padding-5"
+                >
+                  <img src={game.img} alt={game.nombre} className="border" />
+                  <p className="text-black text-body font-inter">
+                    {game.nombre}
+                  </p>
+                  <p className="text-black text-title font-inter bg-yellow-gradiant border padding-5 outline glow">
+                    {generarCodigo()}
+                  </p>
+                </div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export default orderDetailPage;
+export default checkoutPage;

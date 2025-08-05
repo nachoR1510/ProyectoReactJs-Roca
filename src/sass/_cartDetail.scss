@@ -1,111 +1,135 @@
-@use "./colores" as *;
+.empty-cart {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  p {
+    width: fit-content;
+  }
+  h2 {
+    width: 800px;
+    text-align: center;
+    font-size: 5rem;
+    span {
+      font-weight: bold;
+      font-size: 6rem;
+    }
+  }
+}
 
 .cartDetail {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 15vh 85vh;
-  background-image: url("../img/bg.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 100%;
   height: 100vh;
-  &__empty {
-    grid-column: 2/3;
-    grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  .gamesDetail {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    h2 {
-      font-size: 4rem;
-      color: $blanco;
-      text-align: center;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    gap: 10px;
+    height: 700px;
+    width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .game-img {
+      position: relative;
+      img {
+        width: 400px;
+        height: 250px;
+      }
+      p {
+        position: absolute;
+        top: 80%;
+        left: 87%;
+        width: 40px;
+        text-align: center;
+      }
     }
-    p {
-      font-size: 3rem;
-      color: $blanco;
-      text-align: center;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-      transition: all 1s;
-      &:hover {
-        color: $amarillo;
+    .game {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      &-data {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        width: 400px;
+        h3 {
+          width: 280px;
+        }
       }
     }
   }
-  &__fill {
-    grid-column: 2/3;
-    grid-row: 2/3;
+  .total-container{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    justify-content: flex-start;
-    h2 {
-      color: $blanco;
-      font-size: 4rem;
+    gap: 10px;
+    &-btn{
+      width: fit-content;
     }
+  }
+  &-total {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 600px;
     p {
-      font-size: 3rem;
-      color: $blanco;
+      width: 350px;
     }
-    &__games {
+    .cart-list {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      max-height: 500px;
-      overflow-y: scroll;
-      padding-top: 1%;
-      padding-bottom: 1%;
-      padding-left: 1%;
-      backdrop-filter: blur(25px);
-      background-color: $negroTranslucido;
-      border-radius: 5px;
-      box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.75);
-      &::-webkit-scrollbar {
-        -webkit-appearance: none;
-      }
-      &::-webkit-scrollbar:vertical {
-        width: 5px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: $amarillo;
-        border-radius: 20px;
-      }
-      .game {
+      max-height: 400px;
+      overflow-y: auto;
+      &-items {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        padding-right: 2%;
-        img {
-          max-width: 300px;
-          min-width: 300px;
-          width: 300px;
-          height: 150px;
-          object-fit: cover;
-          border-radius: 4px;
+        gap: 10px;
+        text-align: start;
+        &-title {
+          width: 200px;
         }
-        h3 {
-          color: $blanco;
-          font-size: 2.5rem;
-          width: 300px;
-          margin-left: 1%;
+        &-body {
+          width: 100px;
         }
-        h4 {
-          color: $blanco;
-          font-size: 2rem;
-          width: 180px;
-          padding-left: 2%;
+        &-quantity {
+          width: 30px;
         }
       }
     }
-    &__total {
-      width: 350px;
-      backdrop-filter: blur(10px);
-      padding: 2%;
-      border-radius: 5px;
-      box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.75);
-      background-color: $negroTranslucido;
-      p {
-        padding-bottom: 3%;
+    .btn-total {
+      display: flex;
+      gap: 10px;
+      input {
+        border: none;
       }
+    }
+  }
+}
+
+.cart-modifier {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  height: fit-content;
+  input {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    width: 40px;
+  }
+  img {
+    transition: all 1s;
+    &:hover {
+      scale: 1.1;
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 }

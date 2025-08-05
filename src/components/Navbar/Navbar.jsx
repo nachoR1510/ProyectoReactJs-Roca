@@ -1,44 +1,34 @@
 import Cart from "../cart/cart.jsx";
-import logo from "../../img/logo.png";
 import SelectCategoria from "../selectCategorias/selectCategorias.jsx";
 import { Link } from "react-router-dom";
-import User from "../../img/user.svg";
 
 const Navbar = () => {
   return (
     <header className="header">
-      <div>
-        <Link
-          to="/"
-          style={{ textDecoration: "none" }}
-          className="header__logo"
-        >
-          <img src={logo} alt="logo" />
-          <h1 className="f2">GameKey Kingdom</h1>
+      <div className="header-logo">
+        <Link to="/">
+          <img src="/img/logo.webp" alt="logo" />
+          <h1 className="text-title text-white font-lubri">GameKey Kingdom</h1>
+          <p className="bg-yellow-gradiant"></p>
         </Link>
       </div>
 
-      <div className="header__links">
+      <div className="header-search font-inter">
         <input
           type="search"
-          id="barraBus"
-          className="f3"
+          id="searchBox"
           placeholder="¿Buscas un juego en especifico?"
         />
 
-        <div id="fixFuente">
-          <SelectCategoria />
+        <div>
+          <SelectCategoria className="text-body text-white" />
         </div>
       </div>
 
-      <div className="header__cart">
-        <img
-          src={User}
-          alt="iconoUsuario"
-          style={{ width: "30px", height: "30px" }}
-        />
+      <div className="header-user">
+        <img src="/img/user.svg" alt="iconoUsuario" />
 
-        <Link to="/cart" style={{ textDecoration: "none", paddingLeft: "2%" }}>
+        <Link to="/cart">
           <Cart />
         </Link>
       </div>

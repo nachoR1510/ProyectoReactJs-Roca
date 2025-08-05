@@ -4,6 +4,15 @@ import { db } from "../../main";
 import { collection, query, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
+const categorias = [
+  "terror",
+  "aventura",
+  "acción",
+  "fantasia",
+  "online",
+  "rpg",
+];
+
 const homePage = () => {
   const [games, setgames] = useState([]);
 
@@ -25,60 +34,83 @@ const homePage = () => {
   });
 
   return (
-    <div>
+    <div className="home">
       {destacado.map((game) => {
         return (
-          <div>
-            <img className="bgImg" src={game.bgImg} alt="bgimgHome" />
+          <main>
+            <video className="bgVideo" autoPlay muted loop playsInline>
+              <source src={"/videos/home-video.mp4"} type="video/mp4" />
+            </video>
 
-            <main className="home">
-              <h2 className="home__titulo f1">JUEGO DESTACADO</h2>
+            <div className="home-banner">
+              <div className="banner-link border padding">
+                <Link
+                  to={`/item/${game.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <img src={game.img} alt="home-game" className="border" />
 
-              <div className="home__game">
-                <img src={game.logo} />
-                <div className="home__game__info">
-                  <p>{game.desc}</p>
-                  <Link
-                    to={`/item/${game.id}`}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <input
-                      type="button"
-                      value="Más información"
-                      className="btnStyle btnHover btnHome f3"
-                    />
-                  </Link>
-                </div>
+                  <p className="font-inter text-black text-body bold border bg-yellow-gradiant link-price">
+                    ${game.precio.toLocaleString("es-AR")}
+                  </p>
+                </Link>
               </div>
+            </div>
 
-              <div className="home__btnToTienda">
-                <a href="#items" className="f3">
-                  Explorar juegos
-                </a>
-              </div>
-
-              <p className="home__degraded"></p>
-            </main>
-
-            <div
-              style={{
-                backgroundColor: "#2728255a",
-                backdropFilter: "blur(25px)",
-              }}
-            >
-              <div className="home__store">
-                <h3 className="f1">JUEGOS RECOMENDADOS</h3>
-                <section id="items">
-                  {games.map((game) => {
+            <div className="home-line">
+              <div className="home-catalog">
+                <h3 className="text-title text-white font-mont bold">
+                  JUEGOS DESTACADOS
+                </h3>
+                <section id="items" className="home-best">
+                  {games.slice(0, 6).map((game) => {
                     return <Item game={game} key={game.id} />;
                   })}
                 </section>
+
+                <Link to="/category/all">
+                  <input
+                    type="button"
+                    value="Catalogo completo"
+                    className="bg-white border text-body font-inter"
+                  />
+                </Link>
               </div>
+
+              <section className="home-genders bg-black-blur">
+                <h4 className="text-title text-white font-mont">
+                  BUSCAR POR CATEGORIA
+                </h4>
+
+                <div className="home-genders-cards">
+                  {categorias.map((cat) => (
+                    <Link
+                      key={cat}
+                      to={`/category/${cat}`}
+                      className="genders-card border"
+                      style={{
+                        backgroundImage: `url('/img/bg-${cat}.webp')`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }}
+                    >
+                      <div className="overley-card border"></div>
+                      <img
+                        src={`/img/${cat}.webp`}
+                        alt={`juego-${cat}`}
+                        className="card-pj"
+                      />
+                      <p className="text-body text-white font-inter bold bg-black-blur border padding-5">
+                        {cat.toUpperCase()}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
             </div>
-          </div>
+          </main>
         );
       })}
-      ;
     </div>
   );
 };

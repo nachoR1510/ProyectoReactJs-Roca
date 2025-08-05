@@ -5,9 +5,9 @@ const cart = () => {
   const { cartTotalQuantity } = useCartContext();
 
   return (
-    <div className="cartStyle" style={{ marginLeft: "5%" }}>
+    <div className="header-user-cart text-body text-white">
       <img src={cartImg} alt="carritoCompra" />
-      <p>{cartTotalQuantity() || 0}</p>
+      <p className="font-inter text-body">{cartTotalQuantity() || 0}</p>
     </div>
   );
 };

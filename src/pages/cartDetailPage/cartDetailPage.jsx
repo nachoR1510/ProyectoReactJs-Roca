@@ -12,59 +12,108 @@ const cartDetailPage = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="cartDetail f1">
-        <div className="cartDetail__empty">
-          <h2>Todavia no tienes juegos en el carrito</h2>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <p>Explora la tienda</p>
-          </Link>
-        </div>
+      <div className="empty-cart">
+        <h2 className="text-white font-inter">
+          No tienes <span className="font-mont text-yellow">JUEGOS</span> en el{" "}
+          <span className="font-mont">CARRITO.</span>
+        </h2>
+        <Link to="/category/all">
+          <p className="text-black text-title font-inter bg-white border padding-10 btn-hover">
+            Explora la tienda
+          </p>
+        </Link>
       </div>
     );
   }
 
   return (
-    <div className="cartDetail f1">
-      <div className="cartDetail__fill">
-        <h2 className="f1">LISTA DE JUEGOS</h2>
+    <div className="cartDetail">
+      <div>
+        <h2 className="text-white text-title font-mont bold">CARRITO</h2>
 
-        <div className="cartDetail__fill__games">
+        <div className="gamesDetail border outline padding-10">
           {cart.map((game) => {
             return (
               <div className="game" key={game.id}>
-                <img src={game.img} alt={game.nombre} />
-                <h3 className="f3">{game.nombre.toUpperCase()}</h3>
-                <h4 className="f3">
-                  X{game.quantity} ${game.precio * game.quantity}
-                </h4>
+                <div>
+                  <div className="game-img">
+                    <img
+                      src={game.img}
+                      alt={game.nombre}
+                      className="border outline"
+                    />
+                    <p className="bg-black-blur border text-white padding-5 text-body font-inter outline">
+                      x{game.quantity}
+                    </p>
+                  </div>
+                  <div className="game-data">
+                    <h3 className="text-white text-body bold font-inter">
+                      {game.nombre.toUpperCase()}
+                    </h3>
+                    <h4 className="text-white font-inter text-body">
+                      ${game.precio * game.quantity}
+                    </h4>
+                  </div>
+                </div>
                 <CartModifier initial={game.quantity} game={game} />
               </div>
             );
           })}
         </div>
+      </div>
 
-        <div className="cartDetail__fill__total">
-          <p>total: $ {totalPrice()}</p>
+      <div className="total-container">
+        <h5 className="text-white text-title bold font-mont">RESUMEN</h5>
 
-          <div style={{ display: "flex", gap: "10px" }}>
-            <Link to="/checkout" style={{ textDecoration: "none" }}>
+        <div className="cartDetail-total border outline padding-10">
+          <div className="cart-list">
+            {cart.map((game, index) => {
+              return (
+                <div className="text-white text-body font-inter cart-list-items">
+                  <p className="cart-list-items-quantity">{index + 1}.</p>
+                  <p className="cart-list-items-title">{game.nombre}</p>
+                  <p className="cart-list-items-body">${game.precio}</p>
+                  <p className="cart-list-items-quantity">x{game.quantity}</p>
+                  <p className="cart-list-items-body">
+                    ${game.precio * game.quantity}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+          <hr />
+          <p className="text-white font-inter text-body">
+            Subtotal: ${totalPrice()}
+          </p>
+          <p className="text-white font-inter text-body">Descuento: 0</p>
+          <p className="text-white font-mont text-title bold">
+            Total: $ {totalPrice()}
+          </p>
+
+          <div className="btn-total">
+            <Link to="/checkout">
               <input
                 type="button"
                 value="Comprar"
-                className="f3 btnStyle btnHover"
-                style={{ fontSize: "2rem", width: "120px", height: "60px" }}
+                className="border bg-yellow-gradiant outline padding-10 text-black text-body bold font-inter glow"
               />
             </Link>
 
             <input
               type="button"
-              value="Vaciar tienda"
-              className="f3 btnStyle btnHover"
+              value="Vaciar carrito"
+              className="border bg-white padding-10 text-black text-body bold font-inter btn-hover"
               onClick={clean}
-              style={{ fontSize: "2rem", width: "160px", height: "60px" }}
             />
           </div>
         </div>
+
+        <Link
+          to="/category/all"
+          className="text-black text-body font-inter bg-white border btn-hover bold padding-10 total-container-btn"
+        >
+          <p>Agregar mas juegos</p>
+        </Link>
       </div>
     </div>
   );

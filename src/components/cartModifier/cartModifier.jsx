@@ -14,7 +14,7 @@ const cartModifier = ({ initial, game }) => {
   const subFromCart = () => {
     setCount(count - 1);
 
-    if (count === 0) {
+    if (count === 1) {
       removeFromCart(game.id);
     } else {
       const sub = 1;
@@ -27,38 +27,26 @@ const cartModifier = ({ initial, game }) => {
   };
 
   return (
-    <div style={{ display: "flex", gap: "10px" }}>
-      <input
-        type="button"
-        value="-"
-        onClick={subFromCart}
-        className="btnStyle btnHover"
-        style={{
-          width: "30px",
-          fontSize: "2rem",
-        }}
-      />
-
+    <div className="cart-modifier border outline padding-5">
       <input
         type="button"
         value="+"
         onClick={addToCart}
-        className="btnStyle btnHover"
-        style={{
-          width: "30px",
-          fontSize: "2rem",
-        }}
+        className="bg-white font-inter text-body text-black border btn-hover padding-5"
       />
 
       <input
         type="button"
-        value="Eliminar del carrito"
+        value="-"
+        onClick={subFromCart}
+        className="bg-white font-inter text-body text-black border btn-hover padding-5"
+      />
+
+      <img
+        src="/public/img/trash-icon.svg"
+        alt="btn-trash"
+        className="border outline"
         onClick={delate}
-        className="btnStyle btnHover"
-        style={{
-          width: "120px",
-          fontSize: "1.2rem",
-        }}
       />
     </div>
   );

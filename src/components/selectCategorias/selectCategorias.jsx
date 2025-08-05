@@ -1,256 +1,99 @@
-import * as React from "react";
-import { Select, selectClasses } from "@mui/base/Select";
-import { Option, optionClasses } from "@mui/base/Option";
-import { Popper } from "@mui/base/Popper";
-import { styled } from "@mui/system";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { MenuItem, Select } from "@mui/material";
 
-const CustomSelect = React.forwardRef(function CustomSelect(props, ref) {
-  const slots = {
-    root: StyledButton,
-    listbox: StyledListbox,
-    popper: StyledPopper,
-    ...props.slots,
+const categorias = [
+  { label: "Generos", path: "/" },
+  { label: "Terror", path: "/category/terror" },
+  { label: "Aventura", path: "/category/aventura" },
+  { label: "Acción", path: "/category/acción" },
+  { label: "Fantasía", path: "/category/fantasia" },
+  { label: "Online", path: "/category/online" },
+  { label: "RPG", path: "/category/rpg" },
+];
+
+const SelectCategorias = () => {
+  const [value, setValue] = useState("Generos");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // 🔄 Actualiza el valor del select si cambia la URL
+  useEffect(() => {
+    const current = categorias.find((c) => c.path === location.pathname);
+    setValue(current ? current.label : "Generos");
+  }, [location.pathname]);
+
+  const handleChange = (event) => {
+    const selectedLabel = event.target.value;
+    setValue(selectedLabel);
+    const categoria = categorias.find((c) => c.label === selectedLabel);
+    if (categoria) {
+      navigate(categoria.path);
+    }
   };
 
-  return <Select {...props} ref={ref} slots={slots} />;
-});
-
-const selectCategorias = () => {
   return (
-    <CustomSelect
-      style={{ fontFamily: "Lato, sans-serif" }}
-      defaultValue={null}
-      renderValue={(option) => {
-        if (option == null || option.value === null) {
-          return "Categorias";
-        }
-        return `${option.label}`;
+    <Select
+      labelId="categoria-label"
+      value={value}
+      onChange={handleChange}
+      size="small"
+      sx={{
+        fontFamily: "Montserrat, sans-serif",
+        fontSize: "0.9rem",
+        backgroundColor: "#fff",
+        borderRadius: 2,
+        height: 38,
+        width: 150,
+        border: "none",
+        boxShadow: "none",
+        "& fieldset": {
+          border: "none",
+        },
+        "&.Mui-focused": {
+          backgroundColor: "#FFD60A",
+          boxShadow: "none",
+        },
+        "&.Mui-expanded": {
+          backgroundColor: "#FFD60A",
+          boxShadow: "none",
+        },
+      }}
+      MenuProps={{
+        PaperProps: {
+          sx: {
+            backgroundColor: "#14161a73",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderRadius: 2,
+            border: "none",
+            color: "#fff",
+          },
+        },
       }}
     >
-      <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={null}>
-          Sin seleccionar
-        </StyledOption>
-      </Link>
-      <Link
-        to="/category/terror"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={10}>
-          Terror
-        </StyledOption>
-      </Link>
-      <Link
-        to="/category/aventura"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={20}>
-          Aventura
-        </StyledOption>
-      </Link>
-      <Link
-        to="/category/acción"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={30}>
-          Acción
-        </StyledOption>
-      </Link>
-      <Link
-        to="/category/fantasia"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={40}>
-          Fantasia
-        </StyledOption>
-      </Link>
-      <Link
-        to="/category/online"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={50}>
-          Online
-        </StyledOption>
-      </Link>
-      <Link
-        to="/category/rpg"
-        style={{
-          textDecoration: "none",
-          fontSize: "2rem",
-          color: "#242423",
-        }}
-      >
-        <StyledOption style={{ fontFamily: "Lato, sans-serif" }} value={60}>
-          RPG
-        </StyledOption>
-      </Link>
-    </CustomSelect>
+      {categorias.map((cat) => (
+        <MenuItem
+          key={cat.label}
+          value={cat.label}
+          sx={{
+            color: "#fff",
+            borderBottom: "1px solid #fff3f31f",
+            "&.Mui-selected": {
+              backgroundColor: "#FFD60A",
+              color: "#000000",
+            },
+            "&:hover": {
+              backgroundColor: "#FFD60A",
+              color: "#000000",
+            },
+          }}
+        >
+          {cat.label}
+        </MenuItem>
+      ))}
+    </Select>
   );
 };
 
-export default selectCategorias;
-
-const blue = {
-  100: "#845f9c",
-  200: "#99CCF3",
-  400: "#3399FF",
-  500: "#007FFF",
-  600: "#0072E5",
-  900: "#f2e9e4",
-};
-
-const grey = {
-  50: "#f6f8fa",
-  100: "#eaeef2",
-  200: "#d0d7de",
-  300: "#afb8c1",
-  400: "#8c959f",
-  500: "#6e7781",
-  600: "#57606a",
-  700: "#424a53",
-  800: "#32383f",
-  900: "#24292f",
-};
-
-const StyledButton = styled("button")(
-  ({ theme }) => `
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.5rem;
-  box-sizing: border-box;
-  min-width: 200px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  text-align: left;
-  line-height: 1.7;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  box-shadow: 0px 4px 6px ${
-    theme.palette.mode === "dark" ? "rgba(0,0,0, 0.50)" : "rgba(0,0,0, 0.05)"
-  };
-
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 120ms;
-
-  &:hover {
-    background: ${theme.palette.mode === "dark" ? grey[800] : grey[50]};
-    border-color: ${theme.palette.mode === "dark" ? grey[600] : grey[300]};
-  }
-
-  &.${selectClasses.focusVisible} {
-    border-color: ${blue[400]};
-    outline: 3px solid ${theme.palette.mode === "dark" ? blue[500] : blue[200]};
-  }
-
-  &.${selectClasses.expanded} {
-    &{
-       background: linear-gradient(
-      to right,
-      #845f9c 0%,
-      #6d597a 26%,
-      #523566 100%
-    );
-      color: #f2e9e4;
-      box-shadow: 0px 0px 12px 5px #6d597a;
-    }
-    &::after {
-      content: '▴';
-    }
-  }
-
-  &::after {
-    content: '▾';
-    float: right;
-  }
-  `
-);
-
-const StyledListbox = styled("ul")(
-  ({ theme }) => `
-  font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
-  box-sizing: border-box;
-  padding: 6px;
-  margin: 12px 0;
-  min-width: 320px;
-  border-radius: 12px;
-  overflow: auto;
-  outline: 0px;
-  background: ${theme.palette.mode === "dark" ? grey[900] : "#fff"};
-  border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
-  color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  box-shadow: 0px 4px 6px ${
-    theme.palette.mode === "dark" ? "rgba(0,0,0, 0.50)" : "rgba(0,0,0, 0.05)"
-  };
-  `
-);
-
-const StyledOption = styled(Option)(
-  ({ theme }) => `
-  list-style: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: default;
-
-  &:last-of-type {
-    border-bottom: none;
-  }
-
-  &.${optionClasses.selected} {
-    background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
-    color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
-  }
-
-  &.${optionClasses.highlighted} {
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  }
-
-  &.${optionClasses.highlighted}.${optionClasses.selected} {
-    background-color: ${theme.palette.mode === "dark" ? blue[900] : blue[100]};
-    color: ${theme.palette.mode === "dark" ? blue[100] : blue[900]};
-  }
-
-  &.${optionClasses.disabled} {
-    color: ${theme.palette.mode === "dark" ? grey[700] : grey[400]};
-  }
-
-  &:hover:not(.${optionClasses.disabled}) {
-    background-color: ${theme.palette.mode === "dark" ? grey[800] : grey[100]};
-    color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  }
-  `
-);
-
-const StyledPopper = styled(Popper)`
-  z-index: 101;
-`;
+export default SelectCategorias;

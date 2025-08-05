@@ -1,9 +1,10 @@
-@forward "./app";
-@forward "./colores";
-@forward "./navbar";
+@forward "./universal";
+@forward "./header";
+@forward "./footer";
 @forward "./home";
 @forward "./itemListContainer";
 @forward "./cart";
 @forward "./itemDetailContainer";
 @forward "./cartDetail";
 @forward "./checkout";
+ 

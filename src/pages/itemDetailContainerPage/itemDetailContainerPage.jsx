@@ -30,36 +30,66 @@ const itemDetailContainerPage = () => {
     <div>
       {juego.map((game) => {
         return (
-          <div key={game.id}>
-            <img src={game.bgImg} alt="bgGame" className="bgImg" />
+          <div key={game.id} className="itemDetail">
+            <div className="itemDetail-overlay"></div>
 
-            <div className="itemDetail animate__animated animate__fadeInDownBig animate__delay-1s">
-              <div className="itemDetail__info">
-                <div className="itemDetail__info__img">
-                  <img src={game.img} alt="juegoImg" />
-                </div>
-                <div className="itemDetail__info__item">
-                  <div className="titulo">
-                    <h2 className="f1">{game.nombre.toUpperCase()}</h2>
-                  </div>
-                  <div className="precio">
-                    <h3 className="f1">${game.precio}</h3>
-                  </div>
+            <img src={game.bgImg} alt="bgGame" className="itemDetail-bg" />
+
+            <div className="itemDetail-data">
+              <img
+                src={game.img}
+                alt={game.nombre}
+                className="border itemDetail-data-img"
+              />
+              <img
+                src={game.img}
+                alt={game.nombre}
+                className="border itemDetail-data-imgBlur"
+              />
+
+              <div className="itemDetail-data-text">
+                <div>
+                  <h2 className="text-white text-bold text-title font-mont">
+                    {game.nombre}
+                  </h2>
+
+                  <p className="text-white text-bold text-body font-inter">
+                    ${game.precio.toLocaleString("es-AR")}
+                  </p>
                 </div>
 
-                <div
-                  style={{ display: "flex", flexDirection: "row", gap: "5px" }}
-                >
+                <ItemCount initial={1} game={game} />
+              </div>
+            </div>
+
+            <div className="itemDetail-about">
+              <h3 className="text-white text-title text-bold font-mont">
+                Sobre este juego
+              </h3>
+              <div className="itemDetail-about-container border padding-5">
+                <h4 className="text-white text-title font-inter bold ">
+                  {game.nombre}
+                </h4>
+
+                <div className="tags">
+                  <p className="text-white text-body font-inter padding-5 bold">
+                    Categorias:
+                  </p>
                   {game.categorias.map((categoria) => {
                     return (
-                      <div className="itemDetail__info__catg">
-                        <p>{categoria}</p>;
+                      <div>
+                        <p className="text-white text-body font-inter padding-5 border bg-black-blur catg">
+                          {categoria}
+                        </p>
                       </div>
                     );
                   })}
                 </div>
 
-                <ItemCount initial={1} game={game} />
+                <h5 className="text-white text-body font-inter">Descripción</h5>
+                <p className="text-white text-body font-inter ">
+                  {game.desc.replace(/\\n/g, "\n")}
+                </p>
               </div>
             </div>
           </div>
