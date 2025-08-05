@@ -39,7 +39,7 @@ const homePage = () => {
         return (
           <main>
             <video className="bgVideo" autoPlay muted loop playsInline>
-              <source src={"/videos/home-video.mp4"} type="video/mp4" />
+              <source src={"/video/home-video.mp4"} type="video/mp4" />
             </video>
 
             <div className="home-banner">
