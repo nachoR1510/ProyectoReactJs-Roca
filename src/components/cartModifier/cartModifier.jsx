@@ -43,7 +43,7 @@ const cartModifier = ({ initial, game }) => {
       />
 
       <img
-        src="/public/img/trash-icon.svg"
+        src="/img/trash-icon.svg"
         alt="btn-trash"
         className="border outline"
         onClick={delate}
